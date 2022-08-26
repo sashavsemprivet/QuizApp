@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="font_light">
+        <item name="android:fontFamily">@font/opensans_light</item>
+    </style>
+
+    <style name="font_medium">
+        <item name="android:fontFamily">@font/opensans_medium</item>
+    </style>
+
+    <style name="font_bold">
+        <item name="android:fontFamily">@font/opensans_bold</item>
+    </style>
+
+    <style name="font_regular">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+</resources>

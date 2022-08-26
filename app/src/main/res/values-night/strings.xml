@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_button_text">Начать</string>
+    <string name="button_back">Назад</string>
+    <string name="button_send">Отправить</string>
+    <string name="button_text_again">Начать заново</string>
+</resources>
