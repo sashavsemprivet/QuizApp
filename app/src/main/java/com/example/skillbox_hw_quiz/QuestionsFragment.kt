@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
 import android.widget.*
 import androidx.fragment.app.commit
 import androidx.navigation.fragment.findNavController
@@ -26,8 +27,10 @@ class QuestionsFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentQuestionsBinding.inflate(inflater, container, false)
-
         listOfButtonGroup = fillQuestions(binding.myLinerLayout)
+
+        animateButton(binding.buttonBack)
+        animateButton(binding.buttonSend)
         return binding.root
     }
 
@@ -35,13 +38,10 @@ class QuestionsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonBack.setOnClickListener {
-            parentFragmentManager.popBackStack()
             findNavController().navigate(R.id.action_questionsFragment_to_welcomeFragment)
         }
 
-        binding.buttonSend.setOnClickListener {
-            parentFragmentManager.popBackStack()
-
+        binding.buttonSend.setOnClickListener() {
             val listOfSelectedButton = mutableListOf<Int>()
             listOfButtonGroup.forEach {
                 if (it.checkedRadioButtonId != -1) {
@@ -51,10 +51,10 @@ class QuestionsFragment : Fragment() {
             if (listOfSelectedButton.size == quiz.questions.size) {
                 val results = QuizStorage.answer(quiz, listOfSelectedButton)
                 bundle.putString("MyArgs", results)
-                findNavController().navigate(R.id.action_questionsFragment_to_resultsFragment)
-                findNavController().navigate(R.id.resultsFragment, bundle)
-
-
+                findNavController().navigate(
+                    R.id.action_questionsFragment_to_resultsFragment,
+                    bundle
+                )
             } else Toast.makeText(context, "Вы не выбрали все ответы", Toast.LENGTH_SHORT).show()
 
         }
@@ -85,5 +85,13 @@ class QuestionsFragment : Fragment() {
             linearLayout.addView(radioGroup)
         }
         return listOfGroup.toList()
+    }
+
+    private fun animateButton(button: Button){
+        button.animate().apply {
+            duration = 1000
+            alpha(1f)
+            interpolator = AccelerateInterpolator()
+        }.start()
     }
 }

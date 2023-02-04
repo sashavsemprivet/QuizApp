@@ -14,6 +14,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        app:layout_constraintBottom_toTopOf="@+id/start_again"
+        app:layout_constraintEnd_toEndOf="@+id/start_again"
+        app:layout_constraintStart_toStartOf="@id/start_again"
+        app:layout_constraintTop_toBottomOf="@+id/result0"
+        app:lottie_rawRes="@raw/final_animation"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_repeatMode="reverse"
+        app:lottie_repeatCount="1"/>
+
     <Button
         android:id="@+id/start_again"
         android:layout_width="wrap_content"

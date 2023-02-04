@@ -30,11 +30,9 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.startButton.setOnClickListener {
             findNavController().navigate(R.id.action_welcomeFragment_to_questionsFragment)
         }
-
     }
 
     override fun onDestroyView() {

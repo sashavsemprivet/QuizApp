@@ -12,10 +12,22 @@
         tools:layout="@layout/fragment_questions">
         <action
             android:id="@+id/action_questionsFragment_to_resultsFragment"
-            app:destination="@id/resultsFragment" />
+            app:destination="@id/resultsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/questionsFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_questionsFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/translate_in"
+            app:exitAnim="@anim/translate_out"
+            app:popEnterAnim="@anim/translate_in"
+            app:popExitAnim="@anim/translate_out"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
         <argument android:name="MyArgs" />
     </fragment>
     <fragment
@@ -25,15 +37,29 @@
         tools:layout="@layout/fragment_results">
         <action
             android:id="@+id/action_resultsFragment_to_questionsFragment"
-            app:destination="@id/questionsFragment" />
+            app:destination="@id/questionsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/resultsFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.skillbox_hw_quiz.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome">
+
         <action
             android:id="@+id/action_welcomeFragment_to_questionsFragment"
-            app:destination="@id/questionsFragment" />
+            app:destination="@id/questionsFragment"
+            app:enterAnim="@anim/translate_in"
+            app:exitAnim="@anim/translate_out"
+            app:popEnterAnim="@anim/translate_in"
+            app:popExitAnim="@anim/translate_out"
+            app:popUpTo="@id/questionsFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
